@@ -9,7 +9,9 @@
 ## Questions
 ### Describe how Kotlin handles null safety. What are nullable types and non-null types in Kotlin? (0,5 points)
 
-<span style="color:blue">Provide your answer here! </span>
+<span style="color:blue">Bei Kotlin ist der Wert null bei normalen Variablen ausgeschlossen. (Code Example 1) Diese Variablen können erst verwendet werden, nachdem sie mit einem konkreten Wert initialisiert wurden. Das schließt zwar eine NullPointerException aus, ist aber für manche Anwendung zu restriktiv. Es gibt eine Möglichkeit, null explizit zu erlauben. Beim Typ muss ein Fragezeichen erfolgen. (Code Example 2) Möglichkeit zur Testung von "null" ist auf Code Example 3 zu sehen. Es gibt auch den Safe-Call-Operator "?.", dieses wird mird mit obj?.property bzw. obj?.method() ausgewertet, aber auch nur, wenn das Objekt Daten enthält. (example 4) nullable types: non-null types: </span>
+<span style="color:blue"> </span>
+
 > Note: you can also use code snippets to illustrate your answer. 
 
 ```kotlin 
