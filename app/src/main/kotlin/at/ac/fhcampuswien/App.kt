@@ -3,10 +3,26 @@
  */
 package at.ac.fhcampuswien
 
+import java.util.Scanner
+
 class App {
     // Game logic for a number guessing game
     fun playNumberGame(digitsToGuess: Int = 4) {
         //TODO: build a menu which calls the functions and works with the return values
+        val input = Scanner(System.`in`)
+
+        println("Welcome to this Game, please type in your suggestion: ")
+      /*  for(){
+            println("Please enter an Input: ")
+
+        }
+        input.nextInt()
+
+
+
+        for(digitsToGuess){
+
+        }*/
     }
 
     /**
@@ -25,7 +41,14 @@ class App {
      */
     val generateRandomNonRepeatingNumber: (Int) -> Int = { length ->
         //TODO implement the function
-        0   // return value is a placeholder
+        if(length > 9 || length < 1){
+            throw IllegalArgumentException ("The Length is more than 9 or less than 1")
+        }
+        val st = setOf<Int>().random()
+
+        st
+
+        //0   // return value is a placeholder
     }
 
     /**
@@ -53,4 +76,6 @@ class App {
 fun main() {
     println("Hello World!")
     // TODO: call the App.playNumberGame function with and without default arguments
+    val App = App()
+    App.playNumberGame()
 }
