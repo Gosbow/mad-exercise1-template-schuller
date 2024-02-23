@@ -9,13 +9,28 @@
 ## Questions
 ### Describe how Kotlin handles null safety. What are nullable types and non-null types in Kotlin? (0,5 points)
 
-<span style="color:blue">Bei Kotlin ist der Wert null bei normalen Variablen ausgeschlossen. (Code Example 1) Diese Variablen können erst verwendet werden, nachdem sie mit einem konkreten Wert initialisiert wurden. Das schließt zwar eine NullPointerException aus, ist aber für manche Anwendung zu restriktiv. Es gibt eine Möglichkeit, null explizit zu erlauben. Beim Typ muss ein Fragezeichen erfolgen. (Code Example 2) Möglichkeit zur Testung von "null" ist auf Code Example 3 zu sehen. Es gibt auch den Safe-Call-Operator "?.", dieses wird mird mit obj?.property bzw. obj?.method() ausgewertet, aber auch nur, wenn das Objekt Daten enthält. (example 4) nullable types: non-null types: </span>
+<span style="color:blue">Bei Kotlin ist der Wert null bei normalen Variablen ausgeschlossen. (Code Example 1) Diese Variablen können erst verwendet werden, nachdem sie mit einem konkreten Wert initialisiert wurden. Das schließt zwar eine NullPointerException aus, ist aber für manche Anwendung zu restriktiv. Es gibt eine Möglichkeit, null explizit zu erlauben. Beim Typ muss ein Fragezeichen erfolgen. (Code Example 2) Möglichkeit zur Testung von "null" ist auf Code Example 3 zu sehen. Es gibt auch den Safe-Call-Operator "?.", dieses wird mird mit obj?.property bzw. obj?.method() ausgewertet, aber auch nur, wenn das Objekt Daten enthält. (example 4) nullable types: sind Variablen, die auch null annehmen können, diese werden bei der Initialisierung mit einem "?" initialisiert. (Code example 5) non-null types: sind Variablen, die kein null aufnehmen können, da ihnen bei der Initialisierung das "?" fehlt. (Code Example 6) Force Null kann man mit !! erreichen. </span>
 <span style="color:blue"> </span>
 
 > Note: you can also use code snippets to illustrate your answer. 
 
-```kotlin 
-// example code snippet
+```kotlin
+// Code example 1
+val x = "Hallo" //oder
+val x:String = "Hallo"
+// Code example 2
+val x: String?
+
+// Code example 3
+val x = getPerhapsAnything()
+if(x is Int)
+    println("x=$x")
+//Code example 4
+val x = getPerhapsAnything()
+println("x=${p?.variable1}")
+// Code example 5
+val a: String? = "value" // non-null type
+// Code example 6
 val a: String = "value" // non-null type
 ```
 
