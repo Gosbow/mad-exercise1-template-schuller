@@ -36,7 +36,7 @@ val a: String = "value" // non-null type
 
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)
 
-<span style="color:blue">Provide your answer here!</span>
+<span style="color:blue">Lambda Expressions sind Funktionen, welche im Code gleichzeitig definiert und ausgeführt werden können. Zweckmäßigkeit: wenn man eine Funktion nur an einer Stelle braucht.</span>
 
 ### Provide a solution for the following number guessing game inside `App.kt`. (3 points)
 
