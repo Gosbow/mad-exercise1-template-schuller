@@ -18,7 +18,8 @@ class App {
         while(true){
             println("Please enter an Input: ")
             var guess = input.nextInt()
-            checkUserInputAgainstGeneratedNumber(guess, numberToGuess)
+            val toString = checkUserInputAgainstGeneratedNumber(guess, numberToGuess).toString()
+            println(toString)
             println(numberToGuess)
         }
 
@@ -45,7 +46,7 @@ class App {
         }
 
         val randomSet = mutableSetOf<Int>()
-        val tmp = mutableSetOf<Int>()
+
         while(randomSet.size != length){
             val random = (1..9).random()
             randomSet.add(random)
@@ -79,7 +80,40 @@ class App {
      */
     val checkUserInputAgainstGeneratedNumber: (Int, Int) -> CompareResult = { input, generatedNumber ->
         //TODO implement the function
-        CompareResult(0, 0)   // return value is a placeholder
+        val inputList = IntToList(input)
+        val generatedNumberList = IntToList(generatedNumber)
+        val inputSet = inputList.toSet()
+        val generatedNumbersSet = generatedNumberList.toSet()
+        val n = inputSet.intersect(generatedNumbersSet).size
+        var m = 0
+
+        for(i in 0..inputList.size-1)
+        {
+                if(inputList.get(i) == generatedNumberList.get(i))
+                {
+                    m++
+                }
+        }
+
+
+        CompareResult(n, m)   // return value is a placeholder
+    }
+
+    private fun IntToList(input: Int): List<Int> {
+        var nSet = mutableSetOf<Int>()
+
+
+        var initial = input
+        var tmp: Int
+        var i = 0
+        while (initial > 1) {
+            tmp = initial % 10
+            nSet.add(tmp)
+            i++
+            initial /= 10
+        }
+
+        return nSet.reversed()
     }
 }
 
