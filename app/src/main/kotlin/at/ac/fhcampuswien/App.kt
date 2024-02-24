@@ -20,7 +20,11 @@ class App {
             var guess = input.nextInt()
             val toString = checkUserInputAgainstGeneratedNumber(guess, numberToGuess).toString()
             println(toString)
-            println(numberToGuess)
+            if(guess == numberToGuess)
+            {
+                println("HORRAY YOU WON! GET A LIFE!")
+                break
+            }
         }
 
     }
@@ -86,6 +90,9 @@ class App {
         val generatedNumbersSet = generatedNumberList.toSet()
         val n = inputSet.intersect(generatedNumbersSet).size
         var m = 0
+        if(generatedNumberList.toString().length != inputList.toString().length){
+            throw IllegalArgumentException ("The Length is more than 9 or less than 1")
+        }
 
         for(i in 0..inputList.size-1)
         {
@@ -100,20 +107,20 @@ class App {
     }
 
     private fun IntToList(input: Int): List<Int> {
-        var nSet = mutableSetOf<Int>()
+        var nList = mutableListOf<Int>()
 
 
         var initial = input
         var tmp: Int
         var i = 0
-        while (initial > 1) {
+        while (initial >= 1) {
             tmp = initial % 10
-            nSet.add(tmp)
+            nList.add(tmp)
             i++
             initial /= 10
         }
 
-        return nSet.reversed()
+        return nList.reversed()
     }
 }
 
