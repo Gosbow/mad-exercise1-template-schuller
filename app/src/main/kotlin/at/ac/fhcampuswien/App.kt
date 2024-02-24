@@ -12,17 +12,17 @@ class App {
         val input = Scanner(System.`in`)
 
         println("Welcome to this Game, please type in your suggestion: ")
-      /*  for(){
+
+        while(true){
             println("Please enter an Input: ")
-
+            input.nextInt()
         }
-        input.nextInt()
 
 
 
-        for(digitsToGuess){
 
-        }*/
+
+
     }
 
     /**
@@ -44,11 +44,22 @@ class App {
         if(length > 9 || length < 1){
             throw IllegalArgumentException ("The Length is more than 9 or less than 1")
         }
-        val st = setOf<Int>().random()
+        val st = mutableSetOf<Int>()
+        var number: Int?
+        var output:String?
+        while(true){
+            st.random()
+            if(st.size == 4){
+                break
+            }
+        }
+        /*for(i in st){
+            output += st.iterator(i)
+        }*/
 
-        st
+     //   st
 
-        //0   // return value is a placeholder
+        0   // return value is a placeholder
     }
 
     /**
