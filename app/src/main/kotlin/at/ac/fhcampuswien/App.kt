@@ -12,10 +12,13 @@ class App {
         val input = Scanner(System.`in`)
 
         println("Welcome to this Game, please type in your suggestion: ")
+        var diggitLength = input.nextInt()
 
         while(true){
             println("Please enter an Input: ")
-            input.nextInt()
+            var numberToGuess = generateRandomNonRepeatingNumber(diggitLength)
+            var guess = input.nextInt()
+            checkUserInputAgainstGeneratedNumber(guess, numberToGuess)
         }
 
 
@@ -59,7 +62,7 @@ class App {
 
      //   st
 
-        0   // return value is a placeholder
+        5   // return value is a placeholder
     }
 
     /**
