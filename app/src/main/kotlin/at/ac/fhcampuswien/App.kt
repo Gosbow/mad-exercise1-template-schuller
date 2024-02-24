@@ -4,6 +4,7 @@
 package at.ac.fhcampuswien
 
 import java.util.Scanner
+import kotlin.math.pow
 
 class App {
     // Game logic for a number guessing game
@@ -13,18 +14,13 @@ class App {
 
         println("Welcome to this Game, please type in your suggestion: ")
         var diggitLength = input.nextInt()
-
+        var numberToGuess = generateRandomNonRepeatingNumber(diggitLength)
         while(true){
             println("Please enter an Input: ")
-            var numberToGuess = generateRandomNonRepeatingNumber(diggitLength)
             var guess = input.nextInt()
             checkUserInputAgainstGeneratedNumber(guess, numberToGuess)
+            println(numberToGuess)
         }
-
-
-
-
-
 
     }
 
@@ -47,22 +43,22 @@ class App {
         if(length > 9 || length < 1){
             throw IllegalArgumentException ("The Length is more than 9 or less than 1")
         }
-        val st = mutableSetOf<Int>()
-        var number: Int?
-        var output:String?
-        while(true){
-            st.random()
-            if(st.size == 4){
-                break
-            }
+
+        val randomSet = mutableSetOf<Int>()
+        val tmp = mutableSetOf<Int>()
+        while(randomSet.size != length){
+            val random = (1..9).random()
+            randomSet.add(random)
         }
-        /*for(i in st){
-            output += st.iterator(i)
-        }*/
+    var returnInt = randomSet.toIntArray()
+    var ret: Int = 0
 
-     //   st
+        for(i in 1..length)
+        {
+            ret += returnInt[i-1]*(10.0.pow(length-i).toInt())
 
-        5   // return value is a placeholder
+        }
+        ret   // return value is a placeholder
     }
 
     /**
