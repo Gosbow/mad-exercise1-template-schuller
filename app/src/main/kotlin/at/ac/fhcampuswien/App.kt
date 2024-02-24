@@ -9,12 +9,9 @@ import kotlin.math.pow
 class App {
     // Game logic for a number guessing game
     fun playNumberGame(digitsToGuess: Int = 4) {
-        //TODO: build a menu which calls the functions and works with the return values
         val input = Scanner(System.`in`)
 
-        println("Welcome to this Game, please type in your suggestion: ")
-        var diggitLength = input.nextInt()
-        var numberToGuess = generateRandomNonRepeatingNumber(diggitLength)
+        var numberToGuess = generateRandomNonRepeatingNumber(digitsToGuess)
         while(true){
             println("Please enter an Input: ")
             var guess = input.nextInt()
@@ -125,8 +122,16 @@ class App {
 }
 
 fun main() {
-    println("Hello World!")
-    // TODO: call the App.playNumberGame function with and without default arguments
     val App = App()
-    App.playNumberGame()
+    println("Welcome to this Game, please type in your suggestion: ")
+
+    val input = readlnOrNull();
+    if (input.isNullOrEmpty()) {
+        App.playNumberGame()
+        return
+    }
+
+
+    val diggitLength = input.toInt()
+    App.playNumberGame(diggitLength)
 }
